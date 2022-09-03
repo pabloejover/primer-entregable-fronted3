@@ -10,16 +10,16 @@
 import {useState} from "react";
 
 export default function Item(props) {
-  const [compra, setCompra] = useState(props.stock);
+  const [unidades, setUnidades] = useState(props.stock);
   
   function restar(){
-    if(compra > 1){
-      let cantidad = compra -1;
-      setCompra(cantidad);
+    if(unidades > 1){
+      let cantidad = unidades -1;
+      setUnidades(cantidad);
       props.cantidades();
-    }else if (compra === 1){
+    }else if (unidades === 1){
       props.cantidades();
-      setCompra('agotado')
+      setUnidades('agotado')
     }
   }
 
@@ -27,8 +27,8 @@ export default function Item(props) {
     <div className='producto'>
       <h3>{props.nombre}</h3>
       <p>{props.descripcion}</p>
-      <h5>En stock: {compra>0?compra:<span >{compra}</span>}</h5>
-      <button onClick={restar} disabled = {compra>0?false:true}>{compra>0?'COMPRAR':'SIN STOCK'}</button>
+      <h5>En stock: {unidades>0?unidades:<span >{unidades}</span>}</h5>
+      <button onClick={restar} disabled = {unidades>0?false:true}>{unidades>0?'COMPRAR':'SIN STOCK'}</button>
     </div>
   )
 }

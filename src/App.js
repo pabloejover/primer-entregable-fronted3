@@ -9,11 +9,11 @@ import Cabecera from './components/Cabecera';
 import Listado from './components/Listado';
 
 function App() {
-  const [totalCompras, settotalCompras] = useState(0);
+  const [totalCompras, setTotalCompras] = useState(0);
   
   function sumar (){
     const total = totalCompras + 1;
-    settotalCompras(total);
+    setTotalCompras(total);
   }
 
   return (
